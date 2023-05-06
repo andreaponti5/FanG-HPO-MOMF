@@ -41,7 +41,7 @@ class HpoMlp(BaseTestProblem):
         for hyperparameter in X:
             res = self.run_kfold(hyperparameter)
             f1 = np.mean(res['accuracy'])
-            f2 = 1 - np.mean(res['dsp'])
+            f2 = 1 - np.max(np.mean(res["dsp"], axis=0))
             f.append([f1, f2])
         return torch.Tensor(f)
 
