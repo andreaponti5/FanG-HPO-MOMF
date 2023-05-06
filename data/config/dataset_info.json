@@ -1,0 +1,39 @@
+{
+  "ADULT": {
+    "sensitive": [
+      "sex.Female",
+      "race.White",
+      "race.Asian.Pac.Islander",
+      "race.Amer.Indian.Eskimo",
+      "race.Other"
+    ],
+    "target": "income.leq.50k"
+  },
+  "COMPAS": {
+    "sensitive": [
+      "sex.Female",
+      "race.African.American",
+      "race.Asian",
+      "race.Caucasian",
+      "race.Hispanic",
+      "race.Native.American"
+    ],
+    "target": "two_year_recid"
+  },
+  "GERMANCREDIT": {
+    "sensitive": [
+      "Gender.Female"
+    ],
+    "target": "has.bad.credit.risk"
+  },
+  "LAWSCHOOLADMISSIONS": {
+    "sensitive": [
+      "gender.female",
+      "race1.asian",
+      "race1.black",
+      "race1.hisp",
+      "race1.other"
+    ],
+    "target": "has.passed.bar.exam"
+  }
+}

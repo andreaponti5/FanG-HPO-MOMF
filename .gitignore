@@ -1,0 +1,8 @@
+result
+
+# IDE stuff
+.idea
+
+# Python stuff
+venv
+__pycache__

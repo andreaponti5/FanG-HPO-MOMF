@@ -1,0 +1,36 @@
+{
+  "MLP": {
+    "hyperparameters": [
+      "hidden_layers_n",
+      "h1_size",
+      "h2_size",
+      "h3_size",
+      "h4_size",
+      "alpha",
+      "learning_rate_init",
+      "beta_1",
+      "beta_2",
+      "tol"
+    ],
+    "seed": 1
+  },
+  "RF": {
+    "hyperparameters": [
+      "n_estimators",
+      "max_features"
+    ],
+    "seed": 1
+  },
+  "XGB": {
+    "hyperparameters": [
+      "n_estimators",
+      "learning_rate",
+      "gamma",
+      "reg_alpha",
+      "reg_lambda",
+      "subsample",
+      "max_depth"
+    ],
+    "seed": 1
+  }
+}
