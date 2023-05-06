@@ -14,7 +14,7 @@ from gpytorch import ExactMarginalLogLikelihood
 
 from bo import optimize_MOMF
 
-from problems.utils import get_problem, scale_x
+from problems.utils import get_problem
 
 
 # Set dataset and algorithm name
@@ -60,7 +60,7 @@ for trial in range(1, ntrial + 1):
                               f"{algo_name.upper()}_HPO_{dataset_name.upper()}_init/"
                               f"init_design_{trial}.csv")
     train_x = torch.tensor(init_design[hp + ["source"]].values).double()
-    train_x = scale_x(train_x, algo_name)
+    train_x[:, -1] = 1 - (train_x[:, -1] - 1)
     # Note: BoTorch assumes a maximization problem
     train_obj = 1 - torch.tensor(init_design[["mcs", "dsp"]].values).double()
     cumulated_cost = torch.sum((train_x[:, -1] + 1) / 2)
@@ -104,5 +104,6 @@ for trial in range(1, ntrial + 1):
     res["model_update_time"] = model_update_time
     res["acquisition_time"] = acquisition_time
     res["query_time"] = query_time
+    res["source"] = 1 - res["source"] + 1
 
     res.to_csv(f"result/{algo_name}_HPO_{dataset_name}_results/result_{trial}.csv", index=False)
